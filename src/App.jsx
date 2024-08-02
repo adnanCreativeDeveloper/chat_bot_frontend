@@ -1,13 +1,15 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import ChatbotLayout from "./components/ChatbotLayout";
-import Login from "./components/login_signup/Login";
-import SignUp from "./components/login_signup/SignUp";
+import ChatbotLayout from "./components/chat bot layout/ChatbotLayout";
+import RegistrationRoutes from "./components/registration/RegistrationRoutes";
+import LoginOrSignUp from "./components/registration/LoginOrSignUp";
 
 function App() {
   return (
     <>
-      {/* <Login/> */}
-      <SignUp/>
+      {/* <LoginOrSignUp /> */}
+      <RegistrationRoutes />
+      <ChatbotLayout />
     </>
   );
 }
