@@ -10,6 +10,7 @@ function App() {
       <LoginOrSignUp />
       {/* <RegistrationRoutes /> */}
       <ChatbotLayout />
+
     </>
   );
 }

@@ -4,9 +4,6 @@ import { Tooltip as ReactTooltip } from "react-tooltip";
 function SidebarHeader({handleToggleSidebar }) {
   return (
     <>
-      {/* <div className='fixed z-50 left-0 xl:w-fit lg:w-fit md:w-fit sm:w-fit w-full bg-stone-800'>
-
-      </div> */}
 
       <div className='sticky z-50'>
         <div className='w-full h-14 flex items-center justify-between'>

@@ -58,7 +58,7 @@ function Prompt() {
           </div>
           <div>
             <p className='text-stone-400 p-2 text-center text-xs'>
-              ChatGPT can make mistakes. Check important info.
+              ChatBot can make mistakes. Check important info.
             </p>
           </div>
         </div>

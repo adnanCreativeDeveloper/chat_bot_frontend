@@ -1,7 +1,62 @@
 import React, { useState } from "react";
+import { uuidv7 } from "uuidv7";
+
+const user_setting_list_array = [
+  {
+    svg_icon: (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='24'
+        height='24'
+        viewBox='0 0 24 24'
+        fill='#B4B4B4'>
+        <path d='m21.706 5.292-2.999-2.999A.996.996 0 0 0 18 2H6a.996.996 0 0 0-.707.293L2.294 5.292A.994.994 0 0 0 2 6v13c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6a.994.994 0 0 0-.294-.708zM6.414 4h11.172l1 1H5.414l1-1zM4 19V7h16l.002 12H4z'></path>
+        <path d='M14 9h-4v3H7l5 5 5-5h-3z'></path>
+      </svg>
+    ),
+    list_description: "Archive all chats",
+    id: uuidv7(),
+  },
+  {
+    svg_icon: (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='24'
+        height='24'
+        viewBox='0 0 24 24'
+        fill='#B4B4B4'>
+        <path d='M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z'></path>
+        <path d='M9.707 13.707 12 11.414l2.293 2.293 1.414-1.414L13.414 10l2.293-2.293-1.414-1.414L12 8.586 9.707 6.293 8.293 7.707 10.586 10l-2.293 2.293z'></path>
+      </svg>
+    ),
+    list_description: "Delete all chats",
+    id: uuidv7(),
+  },
+  {
+    svg_icon: (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='24'
+        height='24'
+        fill='none'
+        viewBox='0 0 24 24'>
+        <path
+          fill='#B4B4B4'
+          fillRule='evenodd'
+          d='M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4a1 1 0 1 1 0 2H6a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4a1 1 0 1 1 0 2zm9.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L17.586 13H11a1 1 0 1 1 0-2h6.586l-2.293-2.293a1 1 0 0 1 0-1.414'
+          clipRule='evenodd'></path>
+      </svg>
+    ),
+    list_description: "Log out",
+    id: uuidv7(),
+  },
+];
 
 function UserSettingForLargeScreens() {
   const [toggleUserControl, setToggleUserControl] = useState(false);
+  const [userSettingListArray, setUserSettingListArray] = useState(
+    user_setting_list_array
+  );
   const handleToggleUserControl = () => {
     setTimeout(() => {
       setToggleUserControl(!toggleUserControl);
@@ -33,64 +88,26 @@ function UserSettingForLargeScreens() {
             bg-neutral-700 border border-neutral-600
              p-2 rounded-xl'>
                 <ul className='list-none'>
-                  <li
-                    className='relative flex justify-between items-center 
+                  {userSettingListArray.map((item) => (
+                    <li
+                      key={item.id}
+                      className='relative flex justify-between items-center 
           p-3  rounded-lg cursor-pointer group
-        hover:bg-neutral-600 '>
-                    <div className='flex items-center gap-3'>
-                      <div
-                        className='h-6 w-6 rounded-full
-            border-neutral-600 flex items-center justify-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='24'
-                          height='24'
-                          fill='none'
-                          viewBox='0 0 24 24'
-                          className='h-5 w-5 shrink-0'>
-                          <path
-                            fill='#B4B4B4'
-                            fillRule='evenodd'
-                            d='M11.568 3.5a1 1 0 0 0-.863.494l-.811 1.381A3 3 0 0 1 7.33 6.856l-1.596.013a1 1 0 0 0-.858.501l-.44.761a1 1 0 0 0-.003.992l.792 1.4a3 3 0 0 1 0 2.954l-.792 1.4a1 1 0 0 0 .004.992l.439.76a1 1 0 0 0 .858.502l1.596.013a3 3 0 0 1 2.564 1.48l.811 1.382a1 1 0 0 0 .863.494h.87a1 1 0 0 0 .862-.494l.812-1.381a3 3 0 0 1 2.563-1.481l1.596-.013a1 1 0 0 0 .859-.501l.439-.761a1 1 0 0 0 .004-.992l-.793-1.4a3 3 0 0 1 0-2.953l.793-1.401a1 1 0 0 0-.004-.992l-.439-.76a1 1 0 0 0-.859-.502l-1.596-.013a3 3 0 0 1-2.563-1.48L13.3 3.993a1 1 0 0 0-.862-.494zM8.98 2.981A3 3 0 0 1 11.568 1.5h.87a3 3 0 0 1 2.588 1.481l.81 1.382a1 1 0 0 0 .855.494l1.597.013a3 3 0 0 1 2.575 1.502l.44.76a3 3 0 0 1 .011 2.975l-.792 1.4a1 1 0 0 0 0 .985l.792 1.401a3 3 0 0 1-.012 2.974l-.439.761a3 3 0 0 1-2.575 1.503l-1.597.012a1 1 0 0 0-.854.494l-.811 1.382a3 3 0 0 1-2.588 1.481h-.87a3 3 0 0 1-2.588-1.481l-.811-1.382a1 1 0 0 0-.855-.494l-1.596-.012a3 3 0 0 1-2.576-1.503l-.439-.76a3 3 0 0 1-.012-2.975l.793-1.4a1 1 0 0 0 0-.985l-.793-1.4a3 3 0 0 1 .012-2.975l.44-.761A3 3 0 0 1 5.717 4.87l1.596-.013a1 1 0 0 0 .855-.494z'
-                            clipRule='evenodd'></path>
-                          <path
-                            fill='#B4B4B4'
-                            fillRule='evenodd'
-                            d='M12.003 10.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M8.502 12a3.5 3.5 0 1 1 7 .001 3.5 3.5 0 0 1-7-.001'
-                            clipRule='evenodd'></path>
-                        </svg>
+                    hover:bg-neutral-600 '>
+                      <div className='flex items-center gap-3'>
+                        <div
+                          className='h-6 w-6 rounded-full
+                          border-neutral-600 flex items-center justify-center'>
+                          {item.svg_icon}
+                        </div>
+                        <div>
+                          <p className='text-stone-200 text-sm'>
+                            {item.list_description}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <p className='text-stone-200'>Setting</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li
-                    className='relative flex justify-between items-center 
-          p-3 rounded-lg cursor-pointer group
-        hover:bg-neutral-600 '>
-                    <div className='flex items-center gap-3'>
-                      <div
-                        className='h-6 w-6 rounded-full
-            border-neutral-600 flex items-center justify-center'>
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          width='24'
-                          height='24'
-                          fill='none'
-                          viewBox='0 0 24 24'>
-                          <path
-                            fill='#B4B4B4'
-                            fillRule='evenodd'
-                            d='M6 4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4a1 1 0 1 1 0 2H6a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h4a1 1 0 1 1 0 2zm9.293 3.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L17.586 13H11a1 1 0 1 1 0-2h6.586l-2.293-2.293a1 1 0 0 1 0-1.414'
-                            clipRule='evenodd'></path>
-                        </svg>
-                      </div>
-                      <div>
-                        <p className='text-stone-200'>Log out</p>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

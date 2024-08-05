@@ -10,7 +10,7 @@ function Sidebar({ sidebarToggleSidebar, handleToggleSidebar }) {
         className={`xl:static lg:static md:static 
           fixed left-0 top-0 z-10 h-screen overflow-hidden bg-neutral-900 transition-all 
           duration-300
-          ${sidebarToggleSidebar ? "max-w-64 px-2.5" : "max-w-0"}`}>
+          ${sidebarToggleSidebar ? "w-64 px-2.5" : "w-0"}`}>
         <SidebarHeader
           sidebarToggleSidebar={sidebarToggleSidebar}
           handleToggleSidebar={handleToggleSidebar}
