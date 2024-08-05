@@ -1,13 +1,23 @@
-import React from "react";
+import { useState } from "react";
 import Sidebar from "./control panel/Sidebar";
-import PromptAndResponse from "./PromptAndResponse";
+import PromptsAndResponse from "./prompts and responses/PromptsAndResponse";
 
 function ChatbotLayout() {
+  const [sidebarToggleSidebar, setSidebarToggleSidebar] = useState(true);
+  const handleToggleSidebar = () => {
+    setSidebarToggleSidebar(!sidebarToggleSidebar);
+  };
   return (
     <>
       <div className='flex'>
-        <Sidebar />
-        <PromptAndResponse />
+        <Sidebar
+          handleToggleSidebar={handleToggleSidebar}
+          sidebarToggleSidebar={sidebarToggleSidebar}
+        />
+        <PromptsAndResponse
+          handleToggleSidebar={handleToggleSidebar}
+          sidebarToggleSidebar={sidebarToggleSidebar}
+        />
       </div>
     </>
   );

@@ -7,7 +7,7 @@ function LoginOrSignUp() {
     <>
       {/* ******************* LoginOrSignUp modal ********************** */}
       {toggleModal && (
-        <div className='h-screen w-full flex sm:items-center items-end pb-6 bg-black/50'>
+        <div className='fixed top-0 left-0 z-50 h-screen w-full flex sm:items-center items-end pb-6 bg-black/50'>
           <div className='sm:scale-105 w-fit mx-auto'>
             <div
               className='p-8 bg-zinc-800 mx-auto

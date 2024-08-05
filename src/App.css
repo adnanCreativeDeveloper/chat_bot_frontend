@@ -1,4 +1,8 @@
-/* .sign-up{
-    background: #2f2f2f;
-    
-} */
+  .scrollbar-custom::-webkit-scrollbar {
+      background-color: #424242;
+      /* padding: 0 5px; */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+      background-color: #7B7B7B;
+  }

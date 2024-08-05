@@ -7,8 +7,8 @@ import LoginOrSignUp from "./components/registration/LoginOrSignUp";
 function App() {
   return (
     <>
-      {/* <LoginOrSignUp /> */}
-      <RegistrationRoutes />
+      <LoginOrSignUp />
+      {/* <RegistrationRoutes /> */}
       <ChatbotLayout />
     </>
   );
