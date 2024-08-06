@@ -4,7 +4,6 @@ function HideAndShowSideBar({ handleToggleSidebar, sidebarToggleSidebar }) {
   return (
     <>
       <div
-        onClick={handleToggleSidebar}
         className={`xl:fixed lg:fixed md:fixed sm:fixed static left-0
             ${sidebarToggleSidebar ? "-z-10" : "z-10"}
              xl:w-fit lg:w-fit md:w-fit w-full h-14 flex items-center justify-between px-2.5
@@ -12,6 +11,7 @@ function HideAndShowSideBar({ handleToggleSidebar, sidebarToggleSidebar }) {
           `}>
         <>
           <span
+            onClick={handleToggleSidebar}
             data-tooltip-id='close-sidebar-1'
             className='p-2 rounded-lg cursor-pointer hover:bg-neutral-700'>
             <span className='xl:hidden lg:hidden md:hidden sm:hidden block'>

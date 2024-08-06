@@ -1,10 +1,18 @@
 import React from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import { uuidv7 } from "uuidv7";
 
-function SidebarHeader({handleToggleSidebar }) {
+const chatArr1 = [
+  {
+    chat_bot_response: ``,
+    user_prompt: "",
+    id: uuidv7(),
+  },
+];
+
+function SidebarHeader({ handleToggleSidebar }) {
   return (
     <>
-
       <div className='sticky z-50'>
         <div className='w-full h-14 flex items-center justify-between'>
           <span

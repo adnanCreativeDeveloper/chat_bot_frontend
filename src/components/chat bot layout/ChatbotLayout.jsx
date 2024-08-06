@@ -4,6 +4,7 @@ import PromptsAndResponse from "./prompts and responses/PromptsAndResponse";
 
 function ChatbotLayout() {
   const [sidebarToggleSidebar, setSidebarToggleSidebar] = useState(true);
+  const [chatArray, setChatArray] = useState("");
   const handleToggleSidebar = () => {
     setSidebarToggleSidebar(!sidebarToggleSidebar);
   };
@@ -13,10 +14,13 @@ function ChatbotLayout() {
         <Sidebar
           handleToggleSidebar={handleToggleSidebar}
           sidebarToggleSidebar={sidebarToggleSidebar}
+          setChatArray={setChatArray}
         />
         <PromptsAndResponse
           handleToggleSidebar={handleToggleSidebar}
           sidebarToggleSidebar={sidebarToggleSidebar}
+          chatArray={chatArray}
+          setChatArray={setChatArray}
         />
       </div>
     </>

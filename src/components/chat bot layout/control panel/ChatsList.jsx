@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-function Chats({ chatsArr }) {
+function ChatsList({ chatsArr, setChatArray }) {
   const [chatSettingIconColor, setChatSettingIconColor] = useState(false);
+  const [activeClassList, setActiveClassList] = useState(null);
   const iconBgStyle = {
     background:
       "linear-gradient(90deg, rgba(38,38,38,0.22452731092436973) 0%, rgba(38,38,38,1) 30%)",
@@ -9,6 +10,11 @@ function Chats({ chatsArr }) {
   const iconBg = {
     background:
       "linear-gradient(90deg, rgba(23,23,23,0) 0%, rgba(23,23,23,1) 100%)",
+  };
+
+  const handleSetChatArray = (array, id) => {
+    setChatArray(array);
+    setActiveClassList(id);
   };
 
   return (
@@ -23,9 +29,16 @@ function Chats({ chatsArr }) {
             </div>
           )}
           <li
-            className='relative flex justify-between items-center 
-          p-2  rounded-lg cursor-pointer group
-        hover:bg-neutral-800 me-2'>
+            onClick={() => handleSetChatArray(item.chat_array, item.id)}
+            className={`relative flex justify-between items-center 
+                          p-2  rounded-lg cursor-pointer group
+                        hover:bg-neutral-800 me-2
+                            ${
+                              activeClassList === item.id
+                                ? "bg-neutral-800"
+                                : "bg-none"
+                            }
+        `}>
             <div className='w-11/12 overflow-hidden text-nowrap'>
               <p className='text-gray-200 text-sm '>{item.chat_title}</p>
             </div>
@@ -33,11 +46,13 @@ function Chats({ chatsArr }) {
               className='absolute rounded-r-lg h-full w-8 top-0 right-0'
               style={iconBg}></div>
             <div
-              className='hidden group-hover:block py-2 pe-1.5 ps-4 rounded-r-lg 
+              className={`${
+                activeClassList === item.id ? "block" : ""
+              }hidden group-hover:block py-2 pe-1.5 ps-4 rounded-r-lg 
                absolute right-0 top-0
                shadow-inner
                bg-gradient-to-l from-neutral-800 via-neutral-800 to-neutral-800/5
-               '
+              `}
               style={iconBgStyle}>
               <svg
                 onMouseOver={() => setChatSettingIconColor(true)}
@@ -62,4 +77,4 @@ function Chats({ chatsArr }) {
   );
 }
 
-export default Chats;
+export default ChatsList;

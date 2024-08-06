@@ -5,11 +5,7 @@ import UserSettingForLargeScreens from "./user settings/UserSettingForLargeScree
 import HideAndShowSideBar from "./HideAndShowSideBar";
 import { uuidv7 } from "uuidv7";
 
-
-
-
-
-const response_array = [
+const chat_array = [
   {
     chat_bot_response: `
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
@@ -142,10 +138,14 @@ const response_array = [
   },
 ];
 
-
-function PromptsAndResponse({ handleToggleSidebar, sidebarToggleSidebar }) {
-  const [responseArray, setResponseArray] = useState(response_array);
-  const responseScrollToBottom = useRef(null)
+function PromptsAndResponse({
+  chatArray,
+  setChatArray,
+  handleToggleSidebar,
+  sidebarToggleSidebar,
+}) {
+  // const [chatArray, setChatArray] = useState(chat_array);
+  const responseScrollToBottom = useRef(null);
 
   return (
     <>
@@ -157,11 +157,11 @@ function PromptsAndResponse({ handleToggleSidebar, sidebarToggleSidebar }) {
         <UserSettingForLargeScreens />
         <Response
           responseScrollToBottom={responseScrollToBottom}
-          responseArray={responseArray}
+          chatArray={chatArray}
         />
         <Prompt
           responseScrollToBottom={responseScrollToBottom}
-          setResponseArray={setResponseArray}
+          setChatArray={setChatArray}
         />
       </div>
     </>

@@ -3,7 +3,7 @@ import SidebarHeader from "./SidebarHeader";
 import SidebarBody from "./SidebarBody";
 import UserSettingForMobileScreens from "../prompts and responses/user settings/UserSettingForMobileScreens";
 
-function Sidebar({ sidebarToggleSidebar, handleToggleSidebar }) {
+function Sidebar({ sidebarToggleSidebar, handleToggleSidebar, setChatArray }) {
   return (
     <>
       <div
@@ -15,7 +15,7 @@ function Sidebar({ sidebarToggleSidebar, handleToggleSidebar }) {
           sidebarToggleSidebar={sidebarToggleSidebar}
           handleToggleSidebar={handleToggleSidebar}
         />
-        <SidebarBody />
+        <SidebarBody setChatArray={setChatArray} />
         <UserSettingForMobileScreens />
       </div>
     </>

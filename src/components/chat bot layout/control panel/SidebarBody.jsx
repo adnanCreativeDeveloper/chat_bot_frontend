@@ -1,91 +1,180 @@
 import { useState } from "react";
-import Chats from "./Chats";
+import ChatsList from "./ChatsList";
 import { uuidv7 } from "uuidv7";
+
+const chatArr1 = [
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 1",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 1",
+    id: uuidv7(),
+  },
+];
+const chatArr2 = [
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+  {
+    chat_bot_response: `
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                modi sequi, iusto, possimus libero at maiores impedit,
+                repudiandae ipsam ipsum quaerat! Magnam neque quae earum dolores
+                unde! Beatae, accusantium consequatur!
+      `,
+    user_prompt: "chat 2",
+    id: uuidv7(),
+  },
+];
 
 const chat_array = [
   {
+    chat_array: chatArr1,
     chat_title: "Asking for name",
     time_stamp: "Today",
     id: uuidv7(),
   },
   {
+    chat_array: chatArr2,
     chat_title: "To change the scrollbar's background color",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "Browser Support: Scrollbar styling",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "You can now use",
-    time_stamp: "Yesterday",
-    id: uuidv7(),
-  },
-  {
-    chat_title: "Asking for name",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "To change the scrollbar's background color",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "Browser Support: Scrollbar styling",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "You can now use",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "Asking for name",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "To change the scrollbar's background color",
-    time_stamp: "Previous weak",
-    id: uuidv7(),
-  },
-  {
-    chat_title: "Browser Support: Scrollbar styling",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "You can now use",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "Asking for name",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "To change the scrollbar's background color",
-    time_stamp: "Previous 30 days",
-    id: uuidv7(),
-  },
-  {
-    chat_title: "Browser Support: Scrollbar styling",
-    time_stamp: null,
-    id: uuidv7(),
-  },
-  {
-    chat_title: "You can now use",
     time_stamp: null,
     id: uuidv7(),
   },
 ];
 
-function SidebarBody() {
+function SidebarBody({ setChatArray }) {
   const [chatsArr, setChatsArr] = useState(chat_array);
 
   const [chatSettingIconColor, setChatSettingIconColor] = useState(false);
@@ -138,7 +227,7 @@ function SidebarBody() {
         </ul>
         <div>
           <ul className='list-none pb-7'>
-            <Chats chatsArr={chatsArr} />
+            <ChatsList setChatArray={setChatArray} chatsArr={chatsArr} />
           </ul>
         </div>
       </div>
