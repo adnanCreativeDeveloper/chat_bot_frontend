@@ -1,16 +1,23 @@
 import React, { useState } from "react";
+import { TypeAnimation } from "react-type-animation";
 
-function Response() {
+import { uuidv7 } from "uuidv7";
+
+function Response({ responseArray, responseScrollToBottom }) {
   const responseHeight = {
     height: "calc(100vh - 136px)",
+    // height: "calc(100vh - 80px)",
   };
 
   return (
     <div
+      ref={responseScrollToBottom}
       style={responseHeight}
       className={`scrollbar-custom overflow-auto bg-neutral-800 px-3`}>
+      {/* {responseArray.map((item) => ( */}
       <div
-        className='h-full xl:max-w-3xl lg:max-w-3xl md:max-w-2xl
+        // key={item.id}
+        className='h-auto xl:max-w-3xl lg:max-w-3xl md:max-w-2xl
         mx-auto'>
         <div className='flex items-start gap-5'>
           <div>
@@ -33,11 +40,43 @@ function Response() {
               </svg>
             </div>
           </div>
-          <div className=''>
-            <p className='text-stone-200 text-justify'></p>
+          <div className='flex-1'>
+            <div className='max-w-full  h-auto'>
+              <p className='text-gray-200 text-wrap'>
+                {/* {item.chat_bot_response} */}
+              </p>
+            </div>
           </div>
         </div>
+        {/* {userPrompt && ( */}
+        <div className='max-w-lg h-auto rounded-3xl ms-auto p-2.5 px-5 my-10 bg-neutral-700'>
+          <p className='text-gray-200 text-wrap cursor-text'>
+            {/* {item.user_prompt} */}
+            <TypeAnimation
+              sequence={[
+                // Same substring at the start will only be typed out once, initially
+                ` Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit doloribus illum nulla maiores placeat dolore provident dicta pariatur vel perferendis, voluptate iusto nisi. Quidem cumque enim ducimus mollitia! Suscipit, vel.
+            Excepturi tempora labore illo deserunt repellendus nulla nam explicabo! Rerum, eligendi dolorum in aut adipisci odio, facere ullam saepe consequuntur velit omnis repellendus amet ut eius, sed provident dolores perspiciatis?
+            Modi officiis, illo molestias quo sit iusto quae facere quis magni dignissimos perferendis quas nisi voluptas mollitia eveniet unde, voluptatibus ipsum cumque odit, laborum neque consectetur sapiente? Alias, corrupti exercitationem!
+            Voluptate quidem optio necessitatibus, blanditiis tempore veritatis ipsum numquam repellendus sit placeat? Neque commodi officiis cumque dolore odio optio non aspernatur, veritatis praesentium distinctio libero quod assumenda. Dolores, porro vero!
+            Nostrum molestias pariatur iusto ipsa necessitatibus a, quasi placeat, eaque sapiente porro esse quam, dolor hic. Velit laudantium, rem, mollitia et suscipit possimus dolorem dolorum voluptatem, esse vitae saepe culpa.
+            Fuga dolor error excepturi similique consequuntur in repudiandae et at nihil pariatur placeat fugit itaque, reiciendis quibusdam enim repellendus aliquid deleniti voluptates iure neque accusantium a? Cupiditate aspernatur expedita sint!
+            Delectus dolorem harum, omnis excepturi nemo quod, id autem quaerat iusto, eos esse quos? Incidunt expedita nisi provident deleniti! Voluptatem, eos fugiat? At repellendus dicta eius autem, mollitia deserunt earum.
+            Recusandae quisquam aperiam cupiditate vero quidem dolorum. Blanditiis possimus, ut aliquam facere temporibus adipisci. Architecto ex praesentium saepe ab voluptatibus rerum repellendus illo nobis, quod minus ipsum perspiciatis a mollitia!
+            Quaerat, officiis, ullam eius cum maiores provident ipsum nisi, accusamus aliquid beatae totam dicta suscipit incidunt mollitia ratione doloremque harum nesciunt est expedita aliquam molestiae tempore. Quod eveniet sed amet?
+            Pariatur eligendi officia odit quo corporis quis facilis cupiditate facere minima officiis nihil harum sit impedit, neque aut qui quae quia ducimus ipsam placeat et cumque maxime illo reprehenderit? Maiores?`,
+                1,
+              ]}
+              wrapper='span'
+              speed={1}
+              // style={{ fontSize: "2em", display: "inline-block" }}
+              // repeat={Infinity}
+            />
+          </p>
+        </div>
+        {/* )} */}
       </div>
+      {/* ))} */}
     </div>
   );
 }

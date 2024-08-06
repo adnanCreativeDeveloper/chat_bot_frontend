@@ -44,7 +44,7 @@ function LoginOrSignUp() {
                     </Link>
                     <p
                       className='text-slate-100 text-sm font-medium underline cursor-pointer'
-                      onClick={() => setToggleModal(!toggleModal)}  >
+                      onClick={() => setToggleModal(!toggleModal)}>
                       Stay logged out
                     </p>
                   </div>
